@@ -20,6 +20,8 @@ class google:
         self.putNameAndLastName()
         time.sleep(2)
         self.putBirdDay()
+        time.sleep(2)
+        self.putSelectEmail()
 
     def show_exceptions(self, e):
         print(e)
@@ -35,7 +37,6 @@ class google:
         self.driver.find_element_by_id("lastName").send_keys(last_name)
         time.sleep(2)
         self.driver.find_element_by_id("collectNameNext").click()
-        time.sleep(2)
 
     def putBirdDay(self):
 
@@ -49,5 +50,11 @@ class google:
         time.sleep(2)
         Select(self.driver.find_element_by_id("gender")).select_by_index(extensions.build_document_gender(self.person.gender or "female"))
         time.sleep(2)
-        self.driver.find_element_by_id("collectNameNext").click()
+        self.driver.find_element_by_id("birthdaygenderNext").click()
         time.sleep(2)
+
+    def putSelectEmail(self):
+
+        self.driver.find_element_by_id("selectionc2").click()
+        time.sleep(2)
+        self.driver.find_element_by_id("selectionc2").click()
